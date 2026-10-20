@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Personagem RPG - MVP</title>
+    <!-- CSS agora está lincado de um arquivo externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sheet-container">
+        <!-- Cabeçalho -->
+        <div class="header">
+            <div class="header-item">
+                <label>Nome do Personagem</label>
+                <input type="text" placeholder="Ex: Thorin Escudo-de-Carvalho">
+            </div>
+            <div class="header-item">
+                <label>Classe e Nível</label>
+                <input type="text" placeholder="Ex: Guerreiro 1">
+            </div>
+            <div class="header-item">
+                <label>Raça</label>
+                <input type="text" placeholder="Ex: Anão">
+            </div>
+        </div>
+
+        <!-- Coluna Esquerda: Atributos -->
+        <div class="attributes">
+            <div class="attr-box">
+                <label>Força</label>
+                <input type="number" id="str" value="10" oninput="calcMod('str')">
+                <div class="mod" id="str-mod">+0</div>
+            </div>
+            <div class="attr-box">
+                <label>Destreza</label>
+                <input type="number" id="dex" value="10" oninput="calcMod('dex')">
+                <div class="mod" id="dex-mod">+0</div>
+            </div>
+            <div class="attr-box">
+                <label>Constituição</label>
+                <input type="number" id="con" value="10" oninput="calcMod('con')">
+                <div class="mod" id="con-mod">+0</div>
+            </div>
+            <div class="attr-box">
+                <label>Inteligência</label>
+                <input type="number" id="int" value="10" oninput="calcMod('int')">
+                <div class="mod" id="int-mod">+0</div>
+            </div>
+            <div class="attr-box">
+                <label>Sabedoria</label>
+                <input type="number" id="wis" value="10" oninput="calcMod('wis')">
+                <div class="mod" id="wis-mod">+0</div>
+            </div>
+            <div class="attr-box" style="margin-bottom: 15px;">
+                <label>Carisma</label>
+                <input type="number" id="cha" value="10" oninput="calcMod('cha')">
+                <div class="mod" id="cha-mod">+0</div>
+            </div>
+        </div>
+
+        <!-- Coluna Central: Status e Combate -->
+        <div class="main-col">
+            <div class="vitals">
+                <div class="vital-box">
+                    <label>CA</label>
+                    <input type="number" value="10">
+                </div>
+                <div class="vital-box">
+                    <label>Iniciativa</label>
+                    <input type="number" value="0">
+                </div>
+                <div class="vital-box">
+                    <label>Deslocamento</label>
+                    <input type="text" value="9m">
+                </div>
+            </div>
+            <div class="vital-box">
+                <label>Pontos de Vida (HP)</label>
+                <input type="text" placeholder="Atual / Máximo (ex: 12/12)">
+            </div>
+            <div class="textarea-box">
+                <h2>Ataques e Magias</h2>
+                <textarea placeholder="Ex: Espada Longa | +5 Atq | 1d8+3 Cortante"></textarea>
+            </div>
+        </div>
+
+        <!-- Coluna Direita: Detalhes -->
+        <div class="main-col">
+            <div class="textarea-box">
+                <h2>Traços e Habilidades</h2>
+                <textarea placeholder="Descreva as proficiências e habilidades de classe/raça aqui..."></textarea>
+            </div>
+            <div class="textarea-box">
+                <h2>Equipamento & Inventário</h2>
+                <textarea placeholder="Mochila, poções, ouro, etc."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script simples para calcular modificadores padrão de RPG (estilo D&D d20)
+        function calcMod(stat) {
+            const val = document.getElementById(stat).value;
+            let mod = Math.floor((val - 10) / 2);
+            let displayMod = mod >= 0 ? "+" + mod : mod;
+            document.getElementById(stat + '-mod').innerText = displayMod;
+        }
+    </script>
+</body>
+</html>

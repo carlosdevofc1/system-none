@@ -1,0 +1,102 @@
+:root {
+    --bg-color: #121212;
+    --panel-bg: #1e1e24;
+    --text-color: #e0e0e0;
+    --accent-color: #c9302c;
+    --border-color: #333;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-container {
+    background-color: var(--panel-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    width: 100%;
+    max-width: 350px;
+    border-top: 4px solid var(--accent-color);
+}
+h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+}
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+input {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+button:hover {
+    background-color: #a02623;
+}
+button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+}
+.error-msg {
+    color: #ff5252;
+    font-size: 0.9em;
+    text-align: center;
+    min-height: 20px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+.footer-links {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9em;
+}
+.footer-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-links a:hover {
+    color: #ff5252;
+}
